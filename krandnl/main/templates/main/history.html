@@ -24,6 +24,38 @@
     <p>
         Сегодня крестики-нолики — это не только детская забава, но и объект исследований, соревнований и творчества. Попробуйте сыграть в разные вариации на нашем сайте!
     </p>
+
+    <h2 class="history-variations-title">История необычных вариаций крестиков-ноликов</h2>
+    <div class="history-variations">
+        <div class="history-var-card">
+            <h3>Гомоку</h3>
+            <p>Гомоку (или "Пять в ряд") — древняя восточноазиатская игра, популярная в Японии, Китае и Корее. Её история насчитывает более тысячи лет. В отличие от классики, цель — выстроить пять фишек подряд на большом поле.</p>
+        </div>
+        <div class="history-var-card">
+            <h3>3D-крестики-нолики</h3>
+            <p>Появились в XX веке с развитием настольных головоломок. Игра ведётся на трёхмерном поле (например, 3×3×3), что делает стратегию глубже и сложнее.</p>
+        </div>
+        <div class="history-var-card">
+            <h3>Ультимейт крестики-нолики</h3>
+            <p>Современная вариация, придуманная в 2010-х годах. Состоит из 9 полей 3x3, каждое из которых — мини-игра. Победа требует стратегического мышления на двух уровнях.</p>
+        </div>
+        <div class="history-var-card">
+            <h3>Misere (Поддавки)</h3>
+            <p>Вариант, где выигрывает тот, кто <b>не</b> соберёт линию. Популярен среди любителей необычных логических задач и "игр наоборот".</p>
+        </div>
+        <div class="history-var-card">
+            <h3>Wild Tic Tac Toe</h3>
+            <p>В этой версии игроки могут ставить любой символ (X или O) в любой ход. Игра возникла как эксперимент для усложнения классики и развития гибкости мышления.</p>
+        </div>
+        <div class="history-var-card">
+            <h3>Пирамида</h3>
+            <p>Трёхмерная вариация, где поле строится в виде пирамиды. Появилась в конце XX века как усложнённая версия для любителей пространственных головоломок.</p>
+        </div>
+        <div class="history-var-card">
+            <h3>Dara</h3>
+            <p>Африканская стратегическая игра, похожая на крестики-нолики, но с уникальными правилами и целью. Популярна в Нигерии и соседних странах.</p>
+        </div>
+    </div>
 </div>
 
 <style>
@@ -68,6 +100,35 @@
     margin-bottom: 7px;
     line-height: 1.6;
 }
+.history-variations-title {
+    color: #e0aaff;
+    margin-top: 36px;
+    margin-bottom: 18px;
+    font-size: 1.25rem;
+    text-align: center;
+}
+.history-variations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+}
+.history-var-card {
+    background: #3a2066;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px 0 rgba(80,0,120,0.10);
+    padding: 18px 18px 12px 18px;
+    min-width: 220px;
+    max-width: 260px;
+    flex: 1 1 220px;
+    color: #e0d6f6;
+}
+.history-var-card h3 {
+    color: #b983ff;
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.08rem;
+}
 @media (max-width: 700px) {
     .history-block {
         padding: 16px 4vw 14px 4vw;
@@ -75,6 +136,15 @@
     }
     .history-img {
         max-width: 98vw;
+    }
+    .history-variations {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .history-var-card {
+        max-width: 100%;
+        min-width: unset;
+        padding: 12px 8px 10px 10px;
     }
 }
 </style>
