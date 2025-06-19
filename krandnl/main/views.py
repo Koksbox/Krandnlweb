@@ -9,4 +9,7 @@ def home(request):
 
 def about_app(request):
     blocks = range(1, 8)
-    return render(request, 'main/about_app.html', {'blocks': blocks}) 
+    return render(request, 'main/about_app.html', {'blocks': blocks})
+
+def tictactoe(request):
+    return render(request, 'main/tictactoe.html') 

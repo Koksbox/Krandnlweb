@@ -1,0 +1,153 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Крестики-нолики онлайн{% endblock %}
+
+{% block content %}
+<div class="ttt-container">
+    <h1>Классические крестики-нолики</h1>
+    <div id="ttt-board" class="ttt-board"></div>
+    <div class="ttt-info">
+        <span id="ttt-status">Ходит: X</span>
+        <button id="ttt-reset" class="ttt-reset">Сбросить</button>
+    </div>
+</div>
+
+<style>
+.ttt-container {
+    background: #2d124d;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(80,0,120,0.18);
+    padding: 36px 32px 28px 32px;
+    color: #e0d6f6;
+    max-width: 400px;
+    margin: 36px auto 0 auto;
+    text-align: center;
+}
+.ttt-container h1 {
+    color: #e0aaff;
+    margin-bottom: 18px;
+    font-size: 1.5rem;
+}
+.ttt-board {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(3, 60px);
+    gap: 8px;
+    justify-content: center;
+    margin: 0 auto 18px auto;
+}
+.ttt-cell {
+    width: 60px;
+    height: 60px;
+    background: #3a2066;
+    border-radius: 10px;
+    font-size: 2.2rem;
+    color: #e0aaff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    user-select: none;
+}
+.ttt-cell:hover {
+    background: #4d2c7a;
+}
+.ttt-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+#ttt-status {
+    font-size: 1.08rem;
+    color: #b983ff;
+}
+.ttt-reset {
+    background: #b983ff;
+    color: #2d124d;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.ttt-reset:hover {
+    background: #e0aaff;
+}
+@media (max-width: 500px) {
+    .ttt-container {
+        padding: 12px 2vw 10px 2vw;
+        max-width: 98vw;
+    }
+    .ttt-board {
+        grid-template-columns: repeat(3, 18vw);
+        grid-template-rows: repeat(3, 18vw);
+        gap: 3vw;
+    }
+    .ttt-cell {
+        width: 18vw;
+        height: 18vw;
+        font-size: 2.2rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const board = document.getElementById('ttt-board');
+    const status = document.getElementById('ttt-status');
+    const resetBtn = document.getElementById('ttt-reset');
+    let cells = Array(9).fill(null);
+    let current = 'X';
+    let gameOver = false;
+
+    function render() {
+        board.innerHTML = '';
+        cells.forEach((cell, i) => {
+            const div = document.createElement('div');
+            div.className = 'ttt-cell';
+            div.textContent = cell ? cell : '';
+            div.addEventListener('click', () => handleClick(i));
+            board.appendChild(div);
+        });
+    }
+
+    function handleClick(i) {
+        if (cells[i] || gameOver) return;
+        cells[i] = current;
+        if (checkWin(current)) {
+            status.textContent = `Победил: ${current}`;
+            gameOver = true;
+        } else if (cells.every(cell => cell)) {
+            status.textContent = 'Ничья!';
+            gameOver = true;
+        } else {
+            current = current === 'X' ? 'O' : 'X';
+            status.textContent = `Ходит: ${current}`;
+        }
+        render();
+    }
+
+    function checkWin(player) {
+        const wins = [
+            [0,1,2],[3,4,5],[6,7,8],
+            [0,3,6],[1,4,7],[2,5,8],
+            [0,4,8],[2,4,6]
+        ];
+        return wins.some(line => line.every(idx => cells[idx] === player));
+    }
+
+    resetBtn.addEventListener('click', () => {
+        cells = Array(9).fill(null);
+        current = 'X';
+        gameOver = false;
+        status.textContent = 'Ходит: X';
+        render();
+    });
+
+    render();
+});
+</script>
+{% endblock %} 
