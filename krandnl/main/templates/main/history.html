@@ -1,0 +1,81 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}История классических крестиков-ноликов{% endblock %}
+
+{% block content %}
+<div class="history-block">
+    <h1>История классических крестиков-ноликов</h1>
+    <p>
+        <b>Крестики-нолики</b> — одна из самых древних и популярных логических игр в мире. Её корни уходят в глубокую древность: археологи находили доски для похожих игр ещё в Древнем Египте и Риме.
+    </p>
+    <h2>Краткая хронология</h2>
+    <ul>
+        <li><b>Древний Египет:</b> Прототипы игры были известны более 3000 лет назад.</li>
+        <li><b>Древний Рим:</b> Игра называлась «Terni Lapilli» и была популярна среди римлян.</li>
+        <li><b>XIX век:</b> В Англии игра стала известна как «Noughts and Crosses».</li>
+        <li><b>XX век:</b> В США закрепилось название «Tic-Tac-Toe».</li>
+    </ul>
+    <h2>Интересные факты</h2>
+    <ul>
+        <li>В классической игре 3x3 при идеальной игре обоих игроков всегда будет ничья.</li>
+        <li>Крестики-нолики — отличный пример комбинаторики и теории игр.</li>
+        <li>Игра часто используется для обучения программированию и искусственному интеллекту.</li>
+    </ul>
+    <p>
+        Сегодня крестики-нолики — это не только детская забава, но и объект исследований, соревнований и творчества. Попробуйте сыграть в разные вариации на нашем сайте!
+    </p>
+</div>
+
+<style>
+.history-block {
+    background: #2d124d;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(80,0,120,0.18);
+    padding: 36px 32px 28px 32px;
+    color: #e0d6f6;
+    max-width: 800px;
+    margin: 36px auto 0 auto;
+}
+.history-block h1 {
+    color: #e0aaff;
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 2rem;
+    text-align: center;
+}
+.history-img-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 22px;
+}
+.history-img {
+    max-width: 180px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px 0 rgba(80,0,120,0.10);
+    background: #1e003c;
+}
+.history-block h2 {
+    color: #b983ff;
+    margin-top: 24px;
+    margin-bottom: 10px;
+    font-size: 1.18rem;
+}
+.history-block ul {
+    margin: 0 0 18px 24px;
+    padding-left: 18px;
+}
+.history-block li {
+    margin-bottom: 7px;
+    line-height: 1.6;
+}
+@media (max-width: 700px) {
+    .history-block {
+        padding: 16px 4vw 14px 4vw;
+        font-size: 1rem;
+    }
+    .history-img {
+        max-width: 98vw;
+    }
+}
+</style>
+{% endblock %} 

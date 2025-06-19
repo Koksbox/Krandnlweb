@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Сайт о крестиках-ноликах{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #181028;
+            color: #e0d6f6;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(90deg, #2d124d 0%, #6a0572 100%);
+            padding: 0 24px;
+            height: 60px;
+            position: relative;
+            z-index: 10;
+        }
+        .navbar .logo {
+            color: #e0aaff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+        .navbar-links {
+            display: flex;
+            gap: 28px;
+        }
+        .navbar-links a {
+            color: #e0d6f6;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .navbar-links a:hover {
+            color: #b983ff;
+        }
+        .burger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            z-index: 20;
+        }
+        .burger span {
+            height: 4px;
+            width: 100%;
+            background: #e0aaff;
+            margin: 5px 0;
+            border-radius: 2px;
+            transition: 0.4s;
+        }
+        @media (max-width: 700px) {
+            .navbar-links {
+                position: fixed;
+                right: 0;
+                top: 0;
+                height: 100vh;
+                width: 210px;
+                background: linear-gradient(180deg, #2d124d 0%, #6a0572 100%);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 80px 24px 24px 24px;
+                gap: 22px;
+                transform: translateX(100%);
+                transition: transform 0.35s cubic-bezier(.77,0,.18,1);
+                box-shadow: -4px 0 24px 0 rgba(80,0,120,0.18);
+                z-index: 20;
+            }
+            .navbar-links.open {
+                transform: translateX(0);
+            }
+            .burger {
+                display: flex;
+                position: fixed;
+                top: 18px;
+                right: 24px;
+                z-index: 30;
+                background: none;
+            }
+            .burger.open {
+                right: 210px;
+            }
+            .navbar-links a {
+                color: #e0d6f6;
+                font-weight: 600;
+                font-size: 1.13rem;
+            }
+            .navbar-links a:hover {
+                color: #e0aaff;
+            }
+        }
+        /* Burger animation */
+        .burger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .burger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .burger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        .content {
+            max-width: 700px;
+            margin: 40px auto 0 auto;
+            background: rgba(30, 0, 60, 0.85);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(80,0,120,0.25);
+            padding: 40px 36px 32px 36px;
+        }
+        @media (max-width: 600px) {
+            .content {
+                max-width: 98vw;
+                margin: 18px 1vw 0 1vw;
+                padding: 18px 8vw 18px 8vw;
+                border-radius: 10px;
+            }
+        }
+        .navbar-overlay {
+            display: none;
+            position: fixed;
+            z-index: 15;
+            left: 0; top: 0; width: 100vw; height: 100vh;
+            background: rgba(24, 16, 40, 0.65);
+            transition: opacity 0.3s;
+        }
+        .navbar-overlay.open {
+            display: block;
+        }
+        .koksbox-desktop {
+            color: #b983ff;
+            font-size: 1.08rem;
+            font-weight: 500;
+            margin-left: 18px;
+            letter-spacing: 1px;
+            align-self: center;
+        }
+        .koksbox-mobile {
+            display: none;
+            color: #b983ff;
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-top: 32px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+        @media (max-width: 700px) {
+            .koksbox-desktop {
+                display: none;
+            }
+            .koksbox-mobile {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">Крестики-нолики</a>
+        <span class="koksbox-desktop">By Koksbox</span>
+        <div class="navbar-links" id="navbarLinks">
+            <a href="/">Главная</a>
+            <a href="/history/">История</a>
+            <a href="/aboutapp/">О приложении</a>
+            <a href="/variations/">Вариации</a>
+            <a href="/about/">О сайте</a>
+            <span class="koksbox-mobile">By Koksbox</span>
+        </div>
+        <div class="burger" id="burgerMenu" onclick="toggleMenu()" aria-label="Меню/Закрыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="navbar-overlay" id="navbarOverlay" onclick="closeMenu()"></div>
+    </nav>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    <script>
+        function toggleMenu() {
+            const burger = document.getElementById('burgerMenu');
+            const links = document.getElementById('navbarLinks');
+            const overlay = document.getElementById('navbarOverlay');
+            burger.classList.toggle('open');
+            links.classList.toggle('open');
+            overlay.classList.toggle('open');
+        }
+        function closeMenu() {
+            document.getElementById('burgerMenu').classList.remove('open');
+            document.getElementById('navbarLinks').classList.remove('open');
+            document.getElementById('navbarOverlay').classList.remove('open');
+        }
+        // Закрытие меню при клике на ссылку (на мобильных)
+        document.querySelectorAll('.navbar-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                closeMenu();
+            });
+        });
+    </script>
+</body>
+</html> 

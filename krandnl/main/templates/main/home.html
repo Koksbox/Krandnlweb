@@ -1,0 +1,181 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Крестики-нолики — современная игра{% endblock %}
+
+{% block content %}
+<div class="cover-block">
+    <div class="cover-content">
+        <h1 class="cover-title">Крестики-нолики</h1>
+        <h2 class="cover-subtitle">Классика и новые вариации в современном исполнении</h2>
+        <p class="cover-desc">
+            Добро пожаловать на сайт, посвящённый игре крестики-нолики! Здесь вы найдёте не только классическую версию, но и множество интересных режимов, советы по стратегии, историю игры и многое другое. Играйте, изучайте, открывайте новые возможности любимой игры!
+        </p>
+        <div class="cover-btns">
+            <a href="/aboutapp/" class="cover-btn">Подробнее о приложении</a>
+            <a href="/variations/" class="cover-btn cover-btn-secondary">Вариации игры</a>
+        </div>
+    </div>
+    <div class="cover-illustration">
+        <div class="tic-tac-toe-demo">
+            <div class="ttt-row"><span>X</span><span>O</span><span>X</span></div>
+            <div class="ttt-row"><span></span><span>X</span><span>O</span></div>
+            <div class="ttt-row"><span>O</span><span></span><span>X</span></div>
+        </div>
+    </div>
+</div>
+
+<style>
+.cover-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(120deg, #2d124d 0%, #6a0572 100%);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(80,0,120,0.18);
+    padding: 48px 48px 48px 48px;
+    margin-bottom: 32px;
+    min-height: 340px;
+    gap: 40px;
+}
+.cover-content {
+    flex: 2;
+    color: #e0d6f6;
+}
+.cover-title {
+    font-size: 2.8rem;
+    color: #e0aaff;
+    margin-bottom: 12px;
+    margin-top: 0;
+    letter-spacing: 2px;
+}
+.cover-subtitle {
+    font-size: 1.35rem;
+    color: #b983ff;
+    margin-bottom: 22px;
+    margin-top: 0;
+}
+.cover-desc {
+    font-size: 1.13rem;
+    margin-bottom: 32px;
+    line-height: 1.7;
+}
+.cover-btns {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+.cover-btn {
+    background: #b983ff;
+    color: #2d124d;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px 0 rgba(80,0,120,0.10);
+    margin-bottom: 8px;
+}
+.cover-btn:hover {
+    background: #e0aaff;
+    color: #2d124d;
+}
+.cover-btn-secondary {
+    background: #3a2066;
+    color: #e0aaff;
+    border: 1.5px solid #b983ff;
+}
+.cover-btn-secondary:hover {
+    background: #b983ff;
+    color: #2d124d;
+}
+.cover-illustration {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tic-tac-toe-demo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: #1e003c;
+    border-radius: 16px;
+    padding: 18px 22px;
+    box-shadow: 0 2px 12px 0 rgba(80,0,120,0.10);
+}
+.ttt-row {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+}
+.ttt-row span {
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+    background: #2d124d;
+    color: #e0aaff;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 38px;
+    box-shadow: 0 1px 4px 0 rgba(80,0,120,0.10);
+}
+@media (max-width: 900px) {
+    .cover-block {
+        flex-direction: column;
+        padding: 28px 8vw 28px 8vw;
+        gap: 24px;
+    }
+    .cover-illustration {
+        margin-top: 18px;
+    }
+}
+@media (max-width: 600px) {
+    .cover-block {
+        padding: 12px 2vw 18px 2vw;
+        gap: 12px;
+        min-height: unset;
+    }
+    .cover-title {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+    .cover-subtitle {
+        font-size: 1.05rem;
+        margin-bottom: 12px;
+    }
+    .cover-desc {
+        font-size: 0.98rem;
+        margin-bottom: 18px;
+    }
+    .cover-btns {
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+    }
+    .cover-btn, .cover-btn-secondary {
+        width: 100%;
+        padding: 10px 0;
+        font-size: 1rem;
+    }
+    .cover-illustration {
+        margin-top: 10px;
+    }
+    .tic-tac-toe-demo {
+        padding: 10px 8px;
+        border-radius: 10px;
+    }
+    .ttt-row span {
+        width: 28px;
+        height: 28px;
+        font-size: 1.2rem;
+        line-height: 28px;
+        border-radius: 6px;
+    }
+}
+</style>
+{% endblock %} 

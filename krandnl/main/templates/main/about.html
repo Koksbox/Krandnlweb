@@ -1,0 +1,174 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}О сайте{% endblock %}
+
+{% block content %}
+<div class="aboutsite-block">
+    <div class="aboutsite-header">
+        <div class="aboutsite-icon">
+            <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="50" height="50" rx="12" fill="#3a2066" stroke="#b983ff" stroke-width="3"/>
+                <text x="27" y="34" text-anchor="middle" font-size="28" fill="#e0aaff" font-family="Arial, sans-serif">X O</text>
+            </svg>
+        </div>
+        <div>
+            <h1>О сайте</h1>
+            <p class="aboutsite-mission">Место, где классика встречается с новыми идеями. Всё о крестиках-ноликах — от истории до современных вариаций и стратегий!</p>
+        </div>
+    </div>
+    <div class="aboutsite-sections">
+        <div class="aboutsite-section">
+            <h2>Что вы найдёте на сайте?</h2>
+            <ul>
+                <li>Познавательные статьи о правилах и стратегиях</li>
+                <li>Интересные факты и необычные вариации игры</li>
+                <li>Советы для начинающих и опытных игроков</li>
+                <li>Возможность попробовать разные режимы онлайн</li>
+            </ul>
+        </div>
+        <div class="aboutsite-section">
+            <h2>Для кого этот сайт?</h2>
+            <ul>
+                <li>Для любителей логических игр</li>
+                <li>Для тех, кто хочет узнать больше о крестиках-ноликах</li>
+                <li>Для студентов и преподавателей (учебные проекты)</li>
+                <li>Для всех, кто любит интеллектуальные вызовы</li>
+            </ul>
+        </div>
+        <div class="aboutsite-section aboutsite-cta">
+            <h2>Присоединяйтесь!</h2>
+            <p>Проект открыт для всех — играйте, изучайте, делитесь впечатлениями и идеями!</p>
+            <div class="aboutsite-links">
+                <a href="https://github.com/Koksbox/krandnl" target="_blank" class="aboutsite-link">GitHub проекта</a>
+                <a href="https://t.me/k0ksb0x" target="_blank" class="aboutsite-link">Telegram автора</a>
+            </div>
+        </div>
+    </div>
+    <div class="aboutsite-author">Автор: <a href="https://t.me/k0ksb0x">Koksbox</a></div>
+</div>
+
+<style>
+.aboutsite-block {
+    background: #2d124d;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(80,0,120,0.18);
+    padding: 36px 32px 28px 32px;
+    color: #e0d6f6;
+    max-width: 800px;
+    margin: 36px auto 0 auto;
+}
+.aboutsite-header {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 18px;
+}
+.aboutsite-icon {
+    flex-shrink: 0;
+    background: #1e003c;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 2px 12px 0 rgba(80,0,120,0.10);
+}
+.aboutsite-header h1 {
+    color: #e0aaff;
+    margin: 0 0 6px 0;
+    font-size: 2rem;
+}
+.aboutsite-mission {
+    color: #b983ff;
+    font-size: 1.13rem;
+    margin: 0;
+}
+.aboutsite-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-bottom: 18px;
+}
+.aboutsite-section {
+    flex: 1 1 260px;
+    min-width: 220px;
+    background: #3a2066;
+    border-radius: 12px;
+    padding: 18px 18px 12px 18px;
+    margin-bottom: 0;
+    box-shadow: 0 2px 12px 0 rgba(80,0,120,0.10);
+}
+.aboutsite-section h2 {
+    color: #e0aaff;
+    font-size: 1.13rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.aboutsite-section ul {
+    margin: 0 0 0 18px;
+    padding-left: 12px;
+}
+.aboutsite-section li {
+    margin-bottom: 7px;
+    line-height: 1.6;
+}
+.aboutsite-cta {
+    background: #b983ff;
+    color: #2d124d;
+    text-align: center;
+}
+.aboutsite-cta h2 {
+    color: #6a0572;
+}
+.aboutsite-links {
+    margin-top: 10px;
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.aboutsite-link {
+    background: #2d124d;
+    color: #e0aaff;
+    border-radius: 7px;
+    padding: 7px 18px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s;
+    border: 1.5px solid #6a0572;
+}
+.aboutsite-link:hover {
+    background: #e0aaff;
+    color: #2d124d;
+}
+.aboutsite-author {
+    margin-top: 28px;
+    text-align: right;
+    color: #b983ff;
+    font-size: 1.05rem;
+}
+@media (max-width: 700px) {
+    .aboutsite-block {
+        padding: 16px 4vw 14px 4vw;
+        font-size: 1rem;
+    }
+    .aboutsite-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .aboutsite-sections {
+        flex-direction: column;
+        gap: 18px;
+    }
+    .aboutsite-section {
+        padding: 12px 8px 10px 10px;
+    }
+    .aboutsite-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .aboutsite-author {
+        text-align: left;
+        margin-top: 18px;
+    }
+}
+</style>
+{% endblock %} 
