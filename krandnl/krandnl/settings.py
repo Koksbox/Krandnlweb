@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1el3e#oiqg_2mek%w4m%mszr12qwf!juey0x-%5m%5=1!3cnai'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0']
@@ -120,8 +120,9 @@ import os
 from pathlib import Path
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'main', 'static'),
+    BASE_DIR / 'krandnl' / 'main' / 'static',
 ]
 
 
