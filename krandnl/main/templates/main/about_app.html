@@ -1,0 +1,351 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}О нашем приложении{% endblock %}
+
+{% block content %}
+<h1 style="text-align:center; margin-bottom: 32px;">О нашем приложении</h1>
+
+<!-- Основной информационный блок -->
+<div class="aboutapp-main-block">
+    <h2>Добро пожаловать в наше приложение для игры в крестики-нолики!</h2>
+    <p>
+        Это современное приложение, созданное для любителей классических и необычных вариаций крестиков-ноликов.
+        Мы уделили особое внимание удобству интерфейса, адаптивности для мобильных устройств и разнообразию игровых режимов.
+        Здесь вы найдёте всё для интересной и интеллектуальной игры — от простых полей 3x3 до сложных вариантов с таймером и большими размерами поля.
+        Можете взглянуть и использовать <a href="https://github.com/Koksbox/krandnl.git">наше приложение</a>
+    </p>
+    <ul>
+        <li>Интуитивно понятный интерфейс</li>
+        <li>Мобильная адаптация и бургер-меню</li>
+        <li>9 уникальных игровых режимов</li>
+        <li>Встроенный таймер для динамики</li>
+        <li>Подробные правила и справка</li>
+    </ul>
+    <div style="margin: 2.5em 0 2em 0; display: flex; justify-content: center;">
+        <div style="background: linear-gradient(90deg, #6a0572 0%, #a259f7 100%); box-shadow: 0 4px 32px 0 rgba(162,89,247,0.18); border-radius: 18px; padding: 32px 28px; display: flex; align-items: center; flex-direction: column; max-width: 380px; width: 100%;">
+            <a href="/static/app/app-debug.apk" download class="btn" style="width: 100%; text-align: center; font-size: 1.1em; margin-top: 10px;">
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" style="margin-bottom: 12px;"><rect width="24" height="24" rx="12" fill="#181028"/><path d="M12 6v8m0 0-3-3m3 3 3-3" stroke="#e0aaff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="6" y="16" width="12" height="2" rx="1" fill="#e0aaff"/></svg>
+            </a>
+            <div style="color: #fff; font-size: 1.2em; font-weight: 600; margin-bottom: 10px; text-align: center;">Скачать наше мобильное приложение</div>
+            <a href="/static/app/app-debug.apk" download class="btn" style="width: 100%; text-align: center; font-size: 1.1em; margin-top: 10px;"></a>
+            <div style="color: #e0d6f6; font-size: 0.95em; margin-top: 8px; text-align: center;">Android, бесплатно</div>
+        </div>
+    </div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 28px; margin-top: 32px;">
+    <!-- 1. Основной интерфейс -->
+    <div class="aboutapp-block">
+        <div class="aboutapp-img-wrap">
+            <img src="{% static 'img/1.png' %}" alt="Основной интерфейс" class="aboutapp-img" onclick="openModal('{% static 'img/1.png' %}')" />
+        </div>
+        <div class="aboutapp-text">
+            <h2>Основной интерфейс</h2>
+            <p>Интерфейс приложения лаконичен и интуитивно понятен. Основной акцент сделан на игровом поле, чтобы ничто не отвлекало от процесса игры.</p>
+            <div class="aboutapp-section"><span>Особенности:</span>
+                <ul>
+                    <li>Крупное и хорошо видимое игровое поле</li>
+                    <li>Минималистичный дизайн</li>
+                    <li>Быстрый доступ к основным функциям</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 2. Бургер-меню -->
+    <div class="aboutapp-block">
+        <div class="aboutapp-img-wrap">
+            <img src="{% static 'img/2.png' %}" alt="Бургер-меню" class="aboutapp-img" onclick="openModal('{% static 'img/2.png' %}')" />
+        </div>
+        <div class="aboutapp-text">
+            <h2>Бургер-меню</h2>
+            <p>Для удобства пользователей на смартфонах реализовано современное бургер-меню, в котором собраны все основные разделы приложения.</p>
+            <div class="aboutapp-section"><span>Преимущества:</span>
+                <ul>
+                    <li>Лёгкий доступ к навигации</li>
+                    <li>Адаптация под мобильные устройства</li>
+                    <li>Скрытие меню для большего пространства игры</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 3. Реализованные режимы -->
+    <div class="aboutapp-block">
+        <div class="aboutapp-img-wrap">
+            <img src="{% static 'img/3.png' %}" alt="Режимы игры" class="aboutapp-img" onclick="openModal('{% static 'img/3.png' %}')" />
+        </div>
+        <div class="aboutapp-text">
+            <h2>Реализованные режимы</h2>
+            <p>В приложении реализовано 9 уникальных режимов игры, включая классические и расширенные варианты. Вы можете выбрать размер поля и тип символов.</p>
+            <div class="aboutapp-section"><span>Доступные режимы:</span>
+                <ul>
+                    <li>Классические крестики-нолики 3x3</li>
+                    <li>Большие поля (4x4, 5x5 и др.)</li>
+                    <li>Свободный выбор символа</li>
+                    <li>Режимы для нескольких игроков</li>
+                    <li>И многое другое!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 4. Вкладка правил -->
+    <div class="aboutapp-block">
+        <div class="aboutapp-img-wrap">
+            <img src="{% static 'img/4.png' %}" alt="Вкладка правил" class="aboutapp-img" onclick="openModal('{% static 'img/4.png' %}')" />
+        </div>
+        <div class="aboutapp-text">
+            <h2>Вкладка правил</h2>
+            <p>В специальной вкладке подробно расписаны правила игры для всех режимов. Это помогает быстро разобраться даже новичкам.</p>
+            <div class="aboutapp-section"><span>Что есть в правилах:</span>
+                <ul>
+                    <li>Описание классических и новых режимов</li>
+                    <li>Пояснения по управлению</li>
+                    <li>Советы по стратегии</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 5. Таймер -->
+    <div class="aboutapp-block">
+        <div class="aboutapp-img-wrap">
+            <img src="{% static 'img/5.png' %}" alt="Таймер" class="aboutapp-img" onclick="openModal('{% static 'img/5.png' %}')" />
+        </div>
+        <div class="aboutapp-text">
+            <h2>Таймер</h2>
+            <p>Для динамики и азарта в игру встроен таймер. Это делает партии более захватывающими и не даёт затягивать ход.</p>
+            <div class="aboutapp-section"><span>Преимущества таймера:</span>
+                <ul>
+                    <li>Ограничение времени на ход</li>
+                    <li>Повышение соревновательного духа</li>
+                    <li>Возможность настроить длительность</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 6. Большие поля -->
+    <div class="aboutapp-block">
+        <div class="aboutapp-img-wrap">
+            <img src="{% static 'img/6.png' %}" alt="Большие поля" class="aboutapp-img" onclick="openModal('{% static 'img/6.png' %}')" />
+        </div>
+        <div class="aboutapp-text">
+            <h2>Большие поля</h2>
+            <p>Мы постарались сделать даже большие поля удобными для игры на мобильных устройствах. Это открывает новые возможности для стратегий.</p>
+            <div class="aboutapp-section"><span>Особенности:</span>
+                <ul>
+                    <li>Адаптивная верстка для больших полей</li>
+                    <li>Возможность играть на нестандартных размерах</li>
+                    <li>Удобное масштабирование</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 7. Средние поля -->
+    <div class="aboutapp-block">
+        <div class="aboutapp-img-wrap">
+            <img src="{% static 'img/7.png' %}" alt="Средние поля" class="aboutapp-img" onclick="openModal('{% static 'img/7.png' %}')" />
+        </div>
+        <div class="aboutapp-text">
+            <h2>Средние поля</h2>
+            <p>Средние по размеру поля отлично подходят для быстрой и интересной игры. Они обеспечивают баланс между простотой и сложностью.</p>
+            <div class="aboutapp-section"><span>Преимущества:</span>
+                <ul>
+                    <li>Быстрые партии</li>
+                    <li>Много стратегических вариантов</li>
+                    <li>Удобство для игры вдвоём</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для просмотра фото -->
+<div id="imgModal" class="img-modal" onclick="closeModal(event)">
+    <div class="img-modal-content">
+        <button class="img-modal-close" onclick="closeModal(event)">Назад</button>
+        <img id="imgModalImg" src="" alt="Фото" />
+    </div>
+</div>
+
+<style>
+.aboutapp-main-block {
+    background: #3a2066;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px 0 rgba(80,0,120,0.18);
+    padding: 32px 36px 24px 36px;
+    margin-bottom: 36px;
+    color: #e0d6f6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.aboutapp-main-block h2 {
+    color: #e0aaff;
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+}
+.aboutapp-main-block ul {
+    margin: 18px 0 0 24px;
+    padding-left: 18px;
+}
+.aboutapp-section {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 1.04rem;
+    line-height: 1.6;
+}
+.aboutapp-section span {
+    font-weight: bold;
+    color: #b983ff;
+    margin-right: 6px;
+}
+.aboutapp-block {
+    display: flex;
+    align-items: flex-start;
+    background: #2d124d;
+    border-radius: 12px;
+    padding: 22px 24px;
+    box-shadow: 0 2px 12px 0 rgba(80,0,120,0.10);
+    gap: 24px;
+    margin-bottom: 0;
+}
+.aboutapp-img-wrap {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    background: #1e003c;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.aboutapp-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #3a2066;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+.aboutapp-img:hover {
+    box-shadow: 0 0 0 3px #b983ff;
+}
+.aboutapp-text {
+    flex: 1;
+}
+.aboutapp-block h2 {
+    margin-top: 0;
+    color: #e0aaff;
+    font-size: 1.18rem;
+    margin-bottom: 8px;
+}
+.aboutapp-block p {
+    margin: 0 0 8px 0;
+    color: #e0d6f6;
+}
+.img-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(24, 16, 40, 0.85);
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+}
+.img-modal.open {
+    display: flex;
+}
+.img-modal-content {
+    position: relative;
+    background: #2d124d;
+    border-radius: 14px;
+    padding: 18px 18px 12px 18px;
+    box-shadow: 0 8px 32px 0 rgba(80,0,120,0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+.img-modal-content img {
+    max-width: 70vw;
+    max-height: 70vh;
+    border-radius: 10px;
+    background: #3a2066;
+    margin-bottom: 10px;
+}
+.img-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    background: #b983ff;
+    color: #2d124d;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 18px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    z-index: 10;
+}
+.img-modal-close:hover {
+    background: #e0aaff;
+}
+@media (max-width: 700px) {
+    .aboutapp-main-block {
+        padding: 16px 6vw 12px 6vw;
+        font-size: 1rem;
+    }
+    .aboutapp-block {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 16px 10px;
+    }
+    .aboutapp-img-wrap {
+        width: 100%;
+        height: 180px;
+    }
+    .img-modal-content img {
+        max-width: 96vw;
+        max-height: 60vh;
+    }
+}
+</style>
+
+<script>
+function openModal(src) {
+    const modal = document.getElementById('imgModal');
+    const img = document.getElementById('imgModalImg');
+    img.src = src;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeModal(event) {
+    event.stopPropagation();
+    const modal = document.getElementById('imgModal');
+    modal.classList.remove('open');
+    document.getElementById('imgModalImg').src = '';
+    document.body.style.overflow = '';
+}
+window.addEventListener('click', function(e) {
+    const modal = document.getElementById('imgModal');
+    if (e.target === modal) {
+        closeModal(e);
+    }
+});
+window.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('imgModal');
+        if (modal.classList.contains('open')) closeModal(e);
+    }
+});
+</script>
+{% endblock %} 
